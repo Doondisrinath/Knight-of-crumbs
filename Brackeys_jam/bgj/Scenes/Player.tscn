@@ -231,6 +231,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbkls"]
+size = Vector2(21, 20)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rpqav")
@@ -242,5 +243,6 @@ autoplay = "idle"
 frame_progress = 0.0323697
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 6)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_qbkls")

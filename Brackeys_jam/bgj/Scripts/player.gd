@@ -7,11 +7,12 @@ var previous_state:STATES
 
 
 #Movement constants
-const DASH_SPEED := 450.0
-const WALK_SPEED := 300.0
+const DASH_SPEED := 5000.0
+const WALK_SPEED := 250.0
 const JUMP_VELOCITY := -400.0
 const ACCELERATION := 800.0
 const FRICTION := 1200
+const WALL_SLIDE_FRICTION := -100
 
 var current_speed 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -22,10 +23,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	
 	#Left Right
 	var direction = Input.get_axis('left','right')
-	if Input.is_action_pressed('shift'):
+	if Input.is_action_just_pressed('shift'):
 		current_speed = DASH_SPEED
 	else :
 		current_speed = WALK_SPEED
@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 	elif not is_on_floor() and velocity.y > 0:
 		update_state(STATES.FALL)
 	move_and_slide()
-
 
 func update_state(new_state: STATES): 
 	previous_state = current_state
