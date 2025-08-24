@@ -9,6 +9,9 @@
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
 position = Vector2(415, 253)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Temp base" type="StaticBody2D" parent="Level"]
