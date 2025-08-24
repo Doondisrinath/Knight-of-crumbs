@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://d258lc210oacn"]
+[gd_scene load_steps=3 format=3 uid="uid://d258lc210oacn"]
 
 [ext_resource type="PackedScene" uid="uid://c3bomixanq45a" path="res://Scenes/Player.tscn" id="1_jjgbg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjgbg"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
 position = Vector2(415, 253)
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Temp base" type="StaticBody2D" parent="Level"]
+position = Vector2(0, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Temp base"]
+shape = SubResource("WorldBoundaryShape2D_jjgbg")
+
+[node name="TileMap" type="TileMap" parent="Level"]
+format = 2
+
+[node name="Interact" type="Node2D" parent="Level"]
