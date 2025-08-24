@@ -1,0 +1,21 @@
+Moscow
+Must have:
+Traps (Very high risk)
+Enemies(simple)
+Boss for the final level
+Platforming
+dash
+
+Should have:
+Simple Ui
+Music
++1 life after gaining certain score
+Rope Swing (spider man ref)
+
+
+Could have:
+
+
+Won’t have:
+
+
