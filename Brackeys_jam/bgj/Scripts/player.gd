@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #Finite State Machine
-enum STATES{IDLE,WALK,DASH,JUMP,FALL,DOUBLEJUMP,WALLSLIDE}
+enum STATES{IDLE,WALK,DASH,JUMP,FALL,DOUBLEJUMP,WALLSLIDE,WALLJUMP}
 var current_state:STATES = STATES.IDLE
 var previous_state:STATES 
 var is_wall_sliding := false
@@ -25,7 +25,8 @@ func _physics_process(delta: float) -> void:
 	
 	if is_wall_sliding:
 		velocity.y = min(velocity.y,WALL_SLIDE_FRICTION)
-		
+	
+	handle_air_states()
 	walk(delta)
 	jump()
 	move_and_slide()
@@ -49,6 +50,8 @@ func update_state(new_state: STATES):
 			animated_sprite_2d.animation = 'dash'
 		STATES.WALLSLIDE:
 			animated_sprite_2d.animation = 'wall slide'
+		STATES.WALLJUMP:
+			animated_sprite_2d.animation = 'jump'
 	for i in STATES:
 		if STATES[i] == current_state:
 			print(i)
@@ -57,10 +60,13 @@ func update_state(new_state: STATES):
 func jump():
 	if is_on_floor() and Input.is_action_just_pressed('space') and previous_state != STATES.WALLSLIDE:
 		velocity.y = JUMP_VELOCITY
-	if not is_on_floor() and velocity.y < 0 and current_state != STATES.WALLSLIDE:
-		update_state(STATES.JUMP)
-	elif not is_on_floor() and velocity.y > 0 and previous_state!=STATES.JUMP and previous_state  != STATES.WALLSLIDE:
-		update_state(STATES.FALL)
+
+func handle_air_states():
+	if not is_on_floor():
+		if velocity.y < 0 and current_state != STATES.WALLSLIDE:
+			update_state(STATES.JUMP)
+		elif velocity.y > 0 and current_state != STATES.WALLSLIDE and current_state != STATES.JUMP:
+			update_state(STATES.FALL)
 
 
 func walk(delta):
@@ -103,5 +109,5 @@ func check_wall_collision():
 			wall_dir = 1
 			is_wall_sliding = true
 			update_state(STATES.WALLSLIDE)
-		else :
+		elif Input.is_action_pressed("left") or Input.is_action_pressed('right'):
 			update_state(STATES.JUMP)
