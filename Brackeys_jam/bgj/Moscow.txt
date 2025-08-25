@@ -4,7 +4,10 @@ Traps (Very high risk)
 Enemies(simple)
 Boss for the final level
 Platforming
+5 hearts life
+check points
 dash
+moving killzones for platforms
 
 Should have:
 Simple Ui
@@ -19,5 +22,3 @@ Could have:
 
 
 Won’t have:
-
-
