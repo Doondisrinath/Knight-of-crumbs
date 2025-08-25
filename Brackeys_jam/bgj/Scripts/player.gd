@@ -4,18 +4,18 @@ extends CharacterBody2D
 enum STATES{IDLE,WALK,DASH,JUMP,FALL,DOUBLEJUMP,WALLSLIDE}
 var current_state:STATES = STATES.IDLE
 var previous_state:STATES 
-
-
+var is_wall_sliding := false
+var wall_dir := 0
 #Movement constants
 const DASH_SPEED := 5000.0
 const WALK_SPEED := 250.0
 const JUMP_VELOCITY := -400.0
 const ACCELERATION := 800.0
 const FRICTION := 1200
-const WALL_SLIDE_FRICTION := -100
-
+const WALL_SLIDE_FRICTION := 100
 var current_speed 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 
 func _physics_process(delta: float) -> void:
@@ -23,37 +23,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	#Left Right
-	var direction = Input.get_axis('left','right')
-	if Input.is_action_just_pressed('shift'):
-		current_speed = DASH_SPEED
-	else :
-		current_speed = WALK_SPEED
-	if is_on_floor():
-		if direction>0:
-			animated_sprite_2d.flip_h = false
-		elif direction<0:
-			animated_sprite_2d.flip_h = true
-		if direction:
-			velocity.x =move_toward(velocity.x,direction * current_speed, ACCELERATION*delta)
-			if current_speed == DASH_SPEED:
-				update_state(STATES.DASH)
-			elif current_speed == WALK_SPEED:
-				update_state(STATES.WALK)
-		else:
-			velocity.x = move_toward(velocity.x,0,FRICTION*delta)
-			update_state(STATES.IDLE)
-	
-	#Y jumping
-	if is_on_floor() and Input.is_action_just_pressed('space'):
-		velocity.y = JUMP_VELOCITY
-	
-	
-	if not is_on_floor() and velocity.y < 0:
-		update_state(STATES.JUMP)
-	elif not is_on_floor() and velocity.y > 0:
-		update_state(STATES.FALL)
+	if is_wall_sliding:
+		velocity.y = min(velocity.y,WALL_SLIDE_FRICTION)
+		
+	walk(delta)
+	jump()
 	move_and_slide()
+	check_wall_collision()
 
 func update_state(new_state: STATES): 
 	previous_state = current_state
@@ -73,3 +49,57 @@ func update_state(new_state: STATES):
 			animated_sprite_2d.animation = 'dash'
 		STATES.WALLSLIDE:
 			animated_sprite_2d.animation = 'wall slide'
+	for i in STATES:
+		if STATES[i] == current_state:
+			print(i)
+
+
+func jump():
+	if is_on_floor() and Input.is_action_just_pressed('space'):
+		velocity.y = JUMP_VELOCITY
+	if not is_on_floor() and velocity.y < 0:
+		update_state(STATES.JUMP)
+	elif not is_on_floor() and velocity.y > 0 and previous_state!=STATES.JUMP and previous_state  != STATES.WALLSLIDE:
+		update_state(STATES.FALL)
+
+
+func walk(delta):
+	var direction = Input.get_axis('left','right')
+	if Input.is_action_just_pressed('shift'):
+		current_speed = DASH_SPEED
+	else :
+		current_speed = WALK_SPEED
+	
+	if direction>0:
+		animated_sprite_2d.flip_h = false
+	elif direction<0:
+		animated_sprite_2d.flip_h = true
+	if direction:
+		velocity.x =move_toward(velocity.x,direction * current_speed, ACCELERATION*delta)
+		if current_speed == DASH_SPEED:
+			update_state(STATES.DASH)
+		elif current_speed == WALK_SPEED and is_on_floor():
+			update_state(STATES.WALK)
+	elif is_on_floor():
+		velocity.x = move_toward(velocity.x,0,FRICTION*delta)
+		update_state(STATES.IDLE)
+
+
+func dash():
+	pass
+
+
+func check_wall_collision():
+	is_wall_sliding = false
+	wall_dir = 0
+	if not is_on_floor():
+		#test left
+		if test_move(global_transform, Vector2(-1, 0)) and Input.is_action_pressed("left"):
+			wall_dir = -1
+			is_wall_sliding = true
+			update_state(STATES.WALLSLIDE)
+		#test right
+		elif test_move(global_transform, Vector2(1, 0)) and Input.is_action_pressed("right"):
+			wall_dir = 1
+			is_wall_sliding = true
+			update_state(STATES.WALLSLIDE)

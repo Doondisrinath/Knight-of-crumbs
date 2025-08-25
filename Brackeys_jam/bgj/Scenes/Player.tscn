@@ -1,9 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://c3bomixanq45a"]
+[gd_scene load_steps=36 format=3 uid="uid://c3bomixanq45a"]
 
 [ext_resource type="Script" uid="uid://cj4hpvc674wj7" path="res://Scripts/player.gd" id="1_rpqav"]
 [ext_resource type="Texture2D" uid="uid://uj52wh8wvbyt" path="res://Assets/Knight_player_1.4/Knight_player/Dashing_KG_1.png" id="2_52ee3"]
 [ext_resource type="Texture2D" uid="uid://descinww8si8n" path="res://Assets/Knight_player_1.4/Knight_player/Idle_KG_1.png" id="2_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://ditxqb3crnrmh" path="res://Assets/Knight_player_1.4/Knight_player/Landing_KG_1.png" id="3_52ee3"]
+[ext_resource type="Texture2D" uid="uid://bd1hax7i5x0e4" path="res://Assets/Knight_player_1.4/Knight_player/Fall_KG_1.png" id="3_52ee3"]
 [ext_resource type="Texture2D" uid="uid://bnc7bnqbfysef" path="res://Assets/Knight_player_1.4/Knight_player/Jump_KG_1.png" id="5_megsn"]
 [ext_resource type="Texture2D" uid="uid://i2kcay5lxk7m" path="res://Assets/Knight_player_1.4/Knight_player/Walking_KG_1.png" id="7_ksbbd"]
 [ext_resource type="Texture2D" uid="uid://c4k81npgc2in8" path="res://Assets/Knight_player_1.4/Knight_player/Wallside_KG_1.png" id="8_bhhdu"]
@@ -24,21 +24,17 @@ region = Rect2(200, 0, 100, 64)
 atlas = ExtResource("2_52ee3")
 region = Rect2(300, 0, 100, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_52ee3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhhdu"]
 atlas = ExtResource("3_52ee3")
 region = Rect2(0, 0, 100, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhhdu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksbbd"]
 atlas = ExtResource("3_52ee3")
 region = Rect2(100, 0, 100, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksbbd"]
-atlas = ExtResource("3_52ee3")
-region = Rect2(200, 0, 100, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_arntx"]
 atlas = ExtResource("3_52ee3")
-region = Rect2(300, 0, 100, 64)
+region = Rect2(200, 0, 100, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_kyqiw")
@@ -136,9 +132,6 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_52ee3")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bhhdu")
 }, {
@@ -238,9 +231,8 @@ script = ExtResource("1_rpqav")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_52ee3")
-animation = &"fall"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.0323697
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, 6)
