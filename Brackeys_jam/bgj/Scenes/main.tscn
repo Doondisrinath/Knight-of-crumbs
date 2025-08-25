@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d258lc210oacn"]
+[gd_scene load_steps=6 format=3 uid="uid://d258lc210oacn"]
 
 [ext_resource type="PackedScene" uid="uid://c3bomixanq45a" path="res://Scenes/Player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://cpixdknox2qs" path="res://Assets/dungeon-platformer-tile-set-pixel-art/Dungeon Tile Set/Dungeon Tile Set.png" id="2_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://bidc2ng6itfw4" path="res://Assets/pngtree-circle-clipart-black-circle-png-image_2381996.jpg" id="3_8gbba"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjgbg"]
 
@@ -128,11 +127,3 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1245199, 65536, 3, 1245226, 196608, 3, 1245200, 131072, 3, 1245201, 131072, 3, 1245202, 131072, 3, 1245203, 131072, 3, 1245204, 131072, 3, 1245205, 131072, 3, 1245206, 131072, 3, 1245207, 131072, 3, 1245208, 131072, 3, 1245209, 131072, 3, 1245210, 131072, 3, 1245211, 131072, 3, 1245212, 131072, 3, 1245213, 131072, 3, 1245214, 131072, 3, 1245215, 131072, 3, 1245216, 131072, 3, 1245217, 131072, 3, 1245218, 131072, 3, 1245219, 131072, 3, 1245220, 131072, 3, 1245221, 131072, 3, 1245222, 131072, 3, 1245223, 131072, 3, 1245224, 131072, 3, 1245225, 131072, 3, 1179690, 196608, 2, 1114154, 196608, 2, 1048618, 196608, 2, 983082, 196608, 2, 917546, 196608, 2, 852010, 196608, 2, 786474, 196608, 2, 720938, 196608, 2, 655402, 196608, 2, 589866, 196608, 2, 524330, 196608, 2, 458794, 196608, 2, 393258, 196608, 2, 1179663, 65536, 2, 1114127, 65536, 2, 1048591, 65536, 2, 983055, 65536, 2, 917519, 65536, 2, 851983, 65536, 2, 786447, 65536, 2, 720911, 65536, 2, 655375, 65536, 2, 589839, 65536, 2, 524303, 65536, 2, 458767, 65536, 2, 393231, 65536, 2)
 
 [node name="Interact" type="Node2D" parent="Level"]
-
-[node name="PointLight2D" type="PointLight2D" parent="Level"]
-position = Vector2(250, 155)
-scale = Vector2(0.0611111, 0.108333)
-enabled = false
-energy = 7.72
-shadow_enabled = true
-texture = ExtResource("3_8gbba")

@@ -64,7 +64,7 @@ func jump():
 		update_state(STATES.JUMP)
 	if is_wall_sliding and Input.is_action_just_pressed('space'):
 		velocity.y = wall_jump_velocity
-		velocity.x = -wall_dir * WALK_SPEED *1.5
+		velocity.x = -wall_dir * WALK_SPEED * 1.5
 		update_state(STATES.WALLJUMP)
 
 func handle_air_states():
