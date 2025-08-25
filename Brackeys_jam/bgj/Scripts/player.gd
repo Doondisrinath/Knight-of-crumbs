@@ -8,7 +8,9 @@ var is_wall_sliding := false
 var wall_dir := 0
 var wall_jump_velocity := -300.0
 var jump_count : int = 0
-var dash_count : int = 0
+var can_dash = true
+var dashing = false
+var direction
 
 const MAX_DASHES = 1
 const MAX_JUMPS = 1
@@ -16,14 +18,17 @@ const MAX_JUMPS = 1
 
 
 #Movement constants
-const DASH_SPEED := 5000.0
+const DASH_SPEED := 900.0
 const WALK_SPEED := 250.0
 const JUMP_VELOCITY := -400.0
 const ACCELERATION := 2000.0
 const FRICTION := 5000.0
 const WALL_SLIDE_FRICTION := 100
 var current_speed 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dash_timer: Timer = $dash_timer
+@onready var dash_again_timer: Timer = $dash_again_timer
 
 
 
@@ -36,9 +41,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = min(velocity.y,WALL_SLIDE_FRICTION)
 	
 	
-	dash()
 	handle_air_states()
 	walk(delta)
+	dash()
 	jump()
 	move_and_slide()
 	check_wall_collision()
@@ -95,11 +100,8 @@ func handle_air_states():
 			update_state(STATES.FALL)
 
 func walk(delta):
-	var direction = Input.get_axis('left','right')
-	if Input.is_action_just_pressed('shift'):
-		current_speed = DASH_SPEED
-	else :
-		current_speed = WALK_SPEED
+	direction = Input.get_axis('left','right')
+	current_speed = WALK_SPEED
 	
 	if direction>0:
 		animated_sprite_2d.flip_h = false
@@ -107,9 +109,7 @@ func walk(delta):
 		animated_sprite_2d.flip_h = true
 	if direction:
 		velocity.x =move_toward(velocity.x,direction * current_speed, ACCELERATION*delta)
-		if current_speed == DASH_SPEED:
-			update_state(STATES.DASH)
-		elif current_speed == WALK_SPEED and is_on_floor():
+		if current_speed == WALK_SPEED and is_on_floor() and not dashing:
 			update_state(STATES.WALK)
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x,0,FRICTION*delta)
@@ -117,7 +117,16 @@ func walk(delta):
 
 
 func dash():
-	pass
+	if Input.is_action_just_pressed('shift') and can_dash:
+		dashing = true
+		can_dash = false
+		dash_timer.start()
+		dash_again_timer.start()
+		
+	if direction:
+		if dashing:
+			velocity.x = direction * DASH_SPEED
+			update_state(STATES.DASH)
 
 
 func check_wall_collision():
@@ -141,3 +150,13 @@ func check_wall_collision():
 				return
 			elif current_state != STATES.WALLJUMP or previous_state != STATES.WALLJUMP:
 				update_state(STATES.FALL)
+
+# make dash stop
+func _on_timer_timeout() -> void:
+	dashing = false
+
+#for dash cooldown
+func _on_dash_again_timer_timeout() -> void:
+	can_dash = true
+	
+	

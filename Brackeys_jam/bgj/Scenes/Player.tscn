@@ -239,3 +239,11 @@ frame_progress = 0.79535
 position = Vector2(0.5, 0)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_qbkls")
+
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="dash_again_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
