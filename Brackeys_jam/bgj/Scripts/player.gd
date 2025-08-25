@@ -10,8 +10,8 @@ var wall_dir := 0
 const DASH_SPEED := 5000.0
 const WALK_SPEED := 250.0
 const JUMP_VELOCITY := -400.0
-const ACCELERATION := 800.0
-const FRICTION := 1200
+const ACCELERATION := 2000.0
+const FRICTION := 5000.0
 const WALL_SLIDE_FRICTION := 100
 var current_speed 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -55,9 +55,9 @@ func update_state(new_state: STATES):
 
 
 func jump():
-	if is_on_floor() and Input.is_action_just_pressed('space'):
+	if is_on_floor() and Input.is_action_just_pressed('space') and previous_state != STATES.WALLSLIDE:
 		velocity.y = JUMP_VELOCITY
-	if not is_on_floor() and velocity.y < 0:
+	if not is_on_floor() and velocity.y < 0 and current_state != STATES.WALLSLIDE:
 		update_state(STATES.JUMP)
 	elif not is_on_floor() and velocity.y > 0 and previous_state!=STATES.JUMP and previous_state  != STATES.WALLSLIDE:
 		update_state(STATES.FALL)
@@ -94,12 +94,14 @@ func check_wall_collision():
 	wall_dir = 0
 	if not is_on_floor():
 		#test left
-		if test_move(global_transform, Vector2(-1, 0)) and Input.is_action_pressed("left"):
+		if test_move(global_transform, Vector2(-1, 0)) and Input.is_action_pressed("left") and previous_state != STATES.WALK:
 			wall_dir = -1
 			is_wall_sliding = true
 			update_state(STATES.WALLSLIDE)
 		#test right
-		elif test_move(global_transform, Vector2(1, 0)) and Input.is_action_pressed("right"):
+		elif test_move(global_transform, Vector2(1, 0)) and Input.is_action_pressed("right") and previous_state != STATES.WALK:
 			wall_dir = 1
 			is_wall_sliding = true
 			update_state(STATES.WALLSLIDE)
+		else :
+			update_state(STATES.JUMP)
