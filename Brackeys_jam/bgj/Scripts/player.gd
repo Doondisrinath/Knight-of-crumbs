@@ -7,6 +7,14 @@ var previous_state:STATES
 var is_wall_sliding := false
 var wall_dir := 0
 var wall_jump_velocity := -300.0
+var jump_count : int = 0
+var dash_count : int = 0
+
+const MAX_DASHES = 1
+const MAX_JUMPS = 2
+
+
+
 #Movement constants
 const DASH_SPEED := 5000.0
 const WALK_SPEED := 250.0
@@ -27,6 +35,8 @@ func _physics_process(delta: float) -> void:
 	if is_wall_sliding:
 		velocity.y = min(velocity.y,WALL_SLIDE_FRICTION)
 	
+	
+	dash()
 	handle_air_states()
 	walk(delta)
 	jump()
@@ -62,17 +72,25 @@ func jump():
 	if is_on_floor() and Input.is_action_just_pressed('space') and previous_state != STATES.WALLSLIDE:
 		velocity.y = JUMP_VELOCITY
 		update_state(STATES.JUMP)
-	if is_wall_sliding and Input.is_action_just_pressed('space'):
+		if is_on_floor():
+			jump_count = 0
+	elif jump_count < MAX_JUMPS and not is_on_floor() and Input.is_action_pressed('space') and previous_state != STATES.WALLSLIDE:
+		velocity.y = JUMP_VELOCITY
+		update_state(STATES.JUMP)
+		jump_count +=1
+		
+	elif is_wall_sliding and Input.is_action_just_pressed('space'):
 		velocity.y = wall_jump_velocity
 		velocity.x = -wall_dir * WALK_SPEED * 1.5
 		update_state(STATES.WALLJUMP)
+	
 
 func handle_air_states():
 	if not is_on_floor():
 		if current_state in [STATES.WALLSLIDE,STATES.WALLJUMP]:
 			return
 		if velocity.y <0 and current_state!= STATES.FALL:
-			update_state(STATES.JUMP)
+			update_state(STATES.DOUBLEJUMP)
 		elif current_state != STATES.JUMP and velocity.y>0:
 			update_state(STATES.FALL)
 
