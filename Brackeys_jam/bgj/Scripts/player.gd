@@ -11,7 +11,7 @@ var jump_count : int = 0
 var dash_count : int = 0
 
 const MAX_DASHES = 1
-const MAX_JUMPS = 2
+const MAX_JUMPS = 1
 
 
 
@@ -74,9 +74,9 @@ func jump():
 		update_state(STATES.JUMP)
 		if is_on_floor():
 			jump_count = 0
-	elif jump_count < MAX_JUMPS and not is_on_floor() and Input.is_action_pressed('space') and previous_state != STATES.WALLSLIDE:
+	elif jump_count < MAX_JUMPS and not is_on_floor() and Input.is_action_just_pressed('space') and previous_state != STATES.WALLSLIDE:
 		velocity.y = JUMP_VELOCITY
-		update_state(STATES.JUMP)
+		update_state(STATES.DOUBLEJUMP)
 		jump_count +=1
 		
 	elif is_wall_sliding and Input.is_action_just_pressed('space'):
@@ -90,8 +90,8 @@ func handle_air_states():
 		if current_state in [STATES.WALLSLIDE,STATES.WALLJUMP]:
 			return
 		if velocity.y <0 and current_state!= STATES.FALL:
-			update_state(STATES.DOUBLEJUMP)
-		elif current_state != STATES.JUMP and velocity.y>0:
+			update_state(STATES.JUMP)
+		elif (current_state != STATES.JUMP and current_state != STATES.DOUBLEJUMP) and velocity.y>0:
 			update_state(STATES.FALL)
 
 func walk(delta):
