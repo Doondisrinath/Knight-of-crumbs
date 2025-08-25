@@ -18,5 +18,7 @@ Rope Swing (spider man ref)
 
 Could have:
 
+- a level with dark theme and enemies have candles to see in the dark, player should use stealth to complete the level.
+
 
 Won’t have:
