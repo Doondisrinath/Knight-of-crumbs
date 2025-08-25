@@ -6,6 +6,7 @@ var current_state:STATES = STATES.IDLE
 var previous_state:STATES 
 var is_wall_sliding := false
 var wall_dir := 0
+var wall_jump_velocity := -300.0
 #Movement constants
 const DASH_SPEED := 5000.0
 const WALK_SPEED := 250.0
@@ -60,14 +61,20 @@ func update_state(new_state: STATES):
 func jump():
 	if is_on_floor() and Input.is_action_just_pressed('space') and previous_state != STATES.WALLSLIDE:
 		velocity.y = JUMP_VELOCITY
+		update_state(STATES.JUMP)
+	if is_wall_sliding and Input.is_action_just_pressed('space'):
+		velocity.y = wall_jump_velocity
+		velocity.x = -wall_dir * WALK_SPEED *1.5
+		update_state(STATES.WALLJUMP)
 
 func handle_air_states():
 	if not is_on_floor():
-		if velocity.y < 0 and current_state != STATES.WALLSLIDE:
+		if current_state in [STATES.WALLSLIDE,STATES.WALLJUMP]:
+			return
+		if velocity.y <0 and current_state!= STATES.FALL:
 			update_state(STATES.JUMP)
-		elif velocity.y > 0 and current_state != STATES.WALLSLIDE and current_state != STATES.JUMP:
+		elif current_state != STATES.JUMP and velocity.y>0:
 			update_state(STATES.FALL)
-
 
 func walk(delta):
 	var direction = Input.get_axis('left','right')
@@ -100,14 +107,19 @@ func check_wall_collision():
 	wall_dir = 0
 	if not is_on_floor():
 		#test left
-		if test_move(global_transform, Vector2(-1, 0)) and Input.is_action_pressed("left") and previous_state != STATES.WALK:
+		if test_move(global_transform, Vector2(-1, 0)) and Input.is_action_pressed("left") and current_state != STATES.WALK :
 			wall_dir = -1
 			is_wall_sliding = true
-			update_state(STATES.WALLSLIDE)
+			if is_on_wall():
+				update_state(STATES.WALLSLIDE)
 		#test right
-		elif test_move(global_transform, Vector2(1, 0)) and Input.is_action_pressed("right") and previous_state != STATES.WALK:
+		elif test_move(global_transform, Vector2(1, 0)) and Input.is_action_pressed("right") and current_state != STATES.WALK  :
 			wall_dir = 1
 			is_wall_sliding = true
-			update_state(STATES.WALLSLIDE)
-		elif Input.is_action_pressed("left") or Input.is_action_pressed('right'):
-			update_state(STATES.JUMP)
+			if is_on_wall():
+				update_state(STATES.WALLSLIDE)
+		elif (Input.is_action_pressed("right") or Input.is_action_pressed("left")) and (previous_state == STATES.WALLSLIDE or current_state == STATES.WALLSLIDE) :
+			if current_state == STATES.WALLJUMP or previous_state == STATES.WALLJUMP:
+				return
+			elif current_state != STATES.WALLJUMP or previous_state != STATES.WALLJUMP:
+				update_state(STATES.FALL)
