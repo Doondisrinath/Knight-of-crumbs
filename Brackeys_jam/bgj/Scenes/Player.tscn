@@ -1,6 +1,7 @@
-[gd_scene load_steps=84 format=3 uid="uid://c3bomixanq45a"]
+[gd_scene load_steps=85 format=3 uid="uid://c3bomixanq45a"]
 
 [ext_resource type="Script" uid="uid://cj4hpvc674wj7" path="res://Scripts/player.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://4edudj3nx5" path="res://Scripts/health.gd" id="2_1e7my"]
 [ext_resource type="Texture2D" uid="uid://uj52wh8wvbyt" path="res://Assets/Knight_player_1.4/Knight_player/Dashing_KG_1.png" id="2_52ee3"]
 [ext_resource type="Texture2D" uid="uid://ynbjgperbmy4" path="res://Assets/Knight_player_1.4/Knight_player/Attack_KG_1.png" id="2_ksbbd"]
 [ext_resource type="Texture2D" uid="uid://bd1hax7i5x0e4" path="res://Assets/Knight_player_1.4/Knight_player/Fall_KG_1.png" id="3_52ee3"]
@@ -558,6 +559,12 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rpqav")
 
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_1e7my")
+max_health = null
+invincible = null
+metadata/_custom_type_script = "uid://4edudj3nx5"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 scale = Vector2(1, 2)
@@ -567,8 +574,8 @@ shape = SubResource("RectangleShape2D_qbkls")
 sprite_frames = SubResource("SpriteFrames_52ee3")
 animation = &"attack"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.681662
+frame = 2
+frame_progress = 0.31681
 
 [node name="dash_timer" type="Timer" parent="."]
 wait_time = 0.2
