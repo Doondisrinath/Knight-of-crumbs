@@ -102,18 +102,18 @@ func handle_air_states():
 func walk(delta):
 	direction = Input.get_axis('left','right')
 	current_speed = WALK_SPEED
-	
-	if direction>0:
-		animated_sprite_2d.flip_h = false
-	elif direction<0:
-		animated_sprite_2d.flip_h = true
-	if direction:
-		velocity.x =move_toward(velocity.x,direction * current_speed, ACCELERATION*delta)
-		if current_speed == WALK_SPEED and is_on_floor() and not dashing:
-			update_state(STATES.WALK)
-	elif is_on_floor():
-		velocity.x = move_toward(velocity.x,0,FRICTION*delta)
-		update_state(STATES.IDLE)
+	if not dashing:
+		if direction>0:
+			animated_sprite_2d.flip_h = false
+		elif direction<0:
+			animated_sprite_2d.flip_h = true
+		if direction:
+			velocity.x =move_toward(velocity.x,direction * current_speed, ACCELERATION*delta)
+			if current_speed == WALK_SPEED and is_on_floor() and not dashing:
+				update_state(STATES.WALK)
+		elif is_on_floor():
+			velocity.x = move_toward(velocity.x,0,FRICTION*delta)
+			update_state(STATES.IDLE)
 
 
 func dash():
