@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #Finite State Machine
-enum STATES{IDLE,WALK,DASH,JUMP,FALL,DOUBLEJUMP,WALLSLIDE,WALLJUMP}
+enum STATES{IDLE,WALK,DASH,JUMP,FALL,DOUBLEJUMP,WALLSLIDE,WALLJUMP,ATTACK,HURT,DYING}
 var current_state:STATES = STATES.IDLE
 var previous_state:STATES 
 var is_wall_sliding := false
@@ -11,11 +11,8 @@ var jump_count : int = 0
 var can_dash = true
 var dashing = false
 var direction
-
-const MAX_DASHES = 1
-const MAX_JUMPS = 1
-
-
+var current_speed 
+@onready var attack_timer: Timer = $"attack timer"
 
 #Movement constants
 const DASH_SPEED := 900.0
@@ -24,8 +21,8 @@ const JUMP_VELOCITY := -400.0
 const ACCELERATION := 2000.0
 const FRICTION := 5000.0
 const WALL_SLIDE_FRICTION := 100
-var current_speed 
-
+const MAX_DASHES = 1
+const MAX_JUMPS = 1
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $dash_timer
 @onready var dash_again_timer: Timer = $dash_again_timer
@@ -45,8 +42,10 @@ func _physics_process(delta: float) -> void:
 	walk(delta)
 	dash()
 	jump()
+	attack()
 	move_and_slide()
 	check_wall_collision()
+
 
 func update_state(new_state: STATES): 
 	previous_state = current_state
@@ -68,9 +67,9 @@ func update_state(new_state: STATES):
 			animated_sprite_2d.animation = 'wall slide'
 		STATES.WALLJUMP:
 			animated_sprite_2d.animation = 'jump'
-	for i in STATES:
+	'''for i in STATES:
 		if STATES[i] == current_state:
-			print(i)
+			print(i)'''
 
 
 func jump():
@@ -88,7 +87,7 @@ func jump():
 		velocity.y = wall_jump_velocity
 		velocity.x = -wall_dir * WALK_SPEED * 1.5
 		update_state(STATES.WALLJUMP)
-	
+
 
 func handle_air_states():
 	if not is_on_floor():
@@ -98,6 +97,7 @@ func handle_air_states():
 			update_state(STATES.JUMP)
 		elif (current_state != STATES.JUMP and current_state != STATES.DOUBLEJUMP) and velocity.y>0:
 			update_state(STATES.FALL)
+
 
 func walk(delta):
 	direction = Input.get_axis('left','right')
@@ -158,5 +158,14 @@ func _on_timer_timeout() -> void:
 #for dash cooldown
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
-	
-	
+
+func attack():
+	pass
+
+
+func _on_attack_timer_timeout() -> void:
+	pass # Replace with function body.
+
+
+func take_damage():
+	print('player took damage')
