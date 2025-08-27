@@ -113,6 +113,7 @@ size = Vector2(68, 67)
 script = ExtResource("1_jjvhh")
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+HEAD
 position = Vector2(460, 230)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -125,6 +126,7 @@ position_smoothing_enabled = true
 position = Vector2(0, 600)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Temp base"]
+position = Vector2(492, 28)
 shape = SubResource("WorldBoundaryShape2D_jjgbg")
 
 [node name="TileMap" type="TileMap" parent="Level"]
