@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="BGJ"
+<<<<<<< Updated upstream
 run/main_scene="uid://bcvq4ux5dei8s"
+=======
+run/main_scene="uid://d258lc210oacn"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "Mobile")
 
 [autoload]

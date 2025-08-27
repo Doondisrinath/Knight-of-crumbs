@@ -113,12 +113,16 @@ size = Vector2(68, 67)
 script = ExtResource("1_jjvhh")
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+<<<<<<< Updated upstream
 
 position = Vector2(493, 185)
 
   
 
  main
+=======
+position = Vector2(438, 123)
+>>>>>>> Stashed changes
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -200)
