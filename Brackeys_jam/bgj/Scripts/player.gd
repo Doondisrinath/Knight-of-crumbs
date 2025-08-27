@@ -12,7 +12,6 @@ var can_dash = true
 var dashing = false
 var direction
 var current_speed 
-@onready var attack_timer: Timer = $"attack timer"
 
 #Movement constants
 const DASH_SPEED := 900.0
