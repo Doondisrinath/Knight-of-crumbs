@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="BGJ"
-HEAD
 run/main_scene="uid://civwkys4hvy5v"
 config/features=PackedStringArray("4.4", "C#", "Mobile")
+HEADrun/main_scene="uid://civwkys4hvy5v"
 
 [autoload]
 

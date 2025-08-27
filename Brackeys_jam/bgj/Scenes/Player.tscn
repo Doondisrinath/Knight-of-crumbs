@@ -15,12 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://tc207udifm1f" path="res://Assets/Knight_player_1.4/Knight_player/Idle_KG_2.png" id="10_arntx"]
 [ext_resource type="Texture2D" uid="uid://b7y81oftbg1r1" path="res://Assets/Knight_player_1.4/Knight_player/knight_win.png" id="12_lslt6"]
 [ext_resource type="Texture2D" uid="uid://davwid065b7r1" path="res://Assets/Knight_player_1.4/Knight_player/Walking_KG_2.png" id="13_ulo2v"]
-
-
-
 [ext_resource type="Script" uid="uid://dtsaygln43osf" path="res://Scripts/hitbox.gd" id="16_lslt6"]
 [ext_resource type="Script" uid="uid://co0htnqg01bcg" path="res://Scripts/hurtbox.gd" id="17_ulo2v"]
- main
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lslt6"]
 atlas = ExtResource("2_ksbbd")
@@ -574,11 +570,9 @@ animation = &"hurt"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -3.75)
+position = Vector2(0.5, 0)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_qbkls")
-
-
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
@@ -606,7 +600,6 @@ shape = SubResource("RectangleShape2D_qbkls")
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_1e7my")
 metadata/_custom_type_script = "uid://4edudj3nx5"
- main
 
 [node name="dash_timer" type="Timer" parent="."]
 wait_time = 0.2
