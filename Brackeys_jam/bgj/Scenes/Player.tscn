@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://davwid065b7r1" path="res://Assets/Knight_player_1.4/Knight_player/Walking_KG_2.png" id="13_ulo2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbkls"]
-size = Vector2(37, 26)
+size = Vector2(39, 30.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lslt6"]
 atlas = ExtResource("2_ksbbd")
@@ -559,11 +559,14 @@ animations = [{
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(1.5, -3.75)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_qbkls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, -7)
+scale = Vector2(1.029, 1)
 sprite_frames = SubResource("SpriteFrames_52ee3")
 animation = &"attack"
 autoplay = "idle"

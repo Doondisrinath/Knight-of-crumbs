@@ -107,7 +107,7 @@ sources/0 = SubResource("TileSetAtlasSource_8gbba")
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(487, -296)
+position = Vector2(493, 185)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
@@ -118,6 +118,7 @@ position_smoothing_enabled = true
 position = Vector2(0, 600)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Temp base"]
+position = Vector2(492, 28)
 shape = SubResource("WorldBoundaryShape2D_jjgbg")
 
 [node name="TileMap" type="TileMap" parent="Level"]
