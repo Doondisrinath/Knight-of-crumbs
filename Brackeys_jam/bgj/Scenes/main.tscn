@@ -107,7 +107,7 @@ sources/0 = SubResource("TileSetAtlasSource_8gbba")
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(487, -296)
+position = Vector2(460, 230)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
