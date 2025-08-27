@@ -16,16 +16,8 @@ var attacking = false
 var attack_animation = 0
 var hurt_lockout := false
 var allow_state_override_during_attack := false
-
 @onready var attack0: CollisionShape2D = $HitBox/attack0
-@onready var hurt_timer: Timer = $hurt_timer
-
-
-
-
-
-
-
+var hurt_state_lock:= false
 
 
 #Movement constants
@@ -63,24 +55,18 @@ func _physics_process(delta: float) -> void:
 	check_wall_collision()
 
 
-func _process(_delta: float) -> void:
-	for i in STATES:
-		if STATES[i] == current_state:
-			print(i)
-
-
 func update_state(new_state: STATES):
-	
-	
-	
-	
+	if current_state == STATES.DYING:
+		return
+	if hurt_state_lock and current_state == STATES.HURT:
+		return
 	if current_state == new_state:
 		return
-	
 	if attacking and new_state != STATES.ATTACK and not allow_state_override_during_attack:
 		return
 	if current_state == STATES.DYING:
 		return
+	
 	
 	previous_state = current_state
 	current_state = new_state
@@ -88,7 +74,7 @@ func update_state(new_state: STATES):
 	match current_state:
 		STATES.IDLE:        animated_sprite_2d.play("idle")
 		STATES.WALK:        animated_sprite_2d.play("walk")
-		STATES.JUMP:        animated_sprite_2d.play("jump")
+		STATES.JUMP:        animated_sprite_2d.play("jump")		
 		STATES.DOUBLEJUMP:  animated_sprite_2d.play("jump")
 		STATES.FALL:        animated_sprite_2d.play("fall")
 		STATES.DASH:        animated_sprite_2d.play("dash")
@@ -108,9 +94,8 @@ func update_state(new_state: STATES):
 				3:
 					animated_sprite_2d.animation = "attack3"
 					animated_sprite_2d.play()
-
-
-
+		STATES.HURT:    animated_sprite_2d.play('hurt')
+		STATES.DYING:   animated_sprite_2d.play("dying")
 
 
 func jump():
@@ -172,11 +157,10 @@ func dash():
 		velocity.y = 0
 	
 	if dashing:
-		var dash_dir = direction
-		if dash_dir == 0:
-			dash_dir = -1 if animated_sprite_2d.flip_h else 1
-		velocity.x = dash_dir * DASH_SPEED
-
+		var dash_direction = direction
+		if dash_direction == 0:
+			dash_direction = -1 if animated_sprite_2d.flip_h else 1
+		velocity.x = dash_direction * DASH_SPEED
 
 
 func check_wall_collision():
@@ -201,38 +185,35 @@ func check_wall_collision():
 			elif (current_state != STATES.WALLJUMP and current_state != STATES.WALLSLIDE ) or previous_state != STATES.WALLJUMP:
 				update_state(STATES.FALL)
 
-
 #for dash cooldown
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
+
 
 func attack():
 	if Input.is_action_just_pressed("attack") and not attacking:
 		attacking = true
 		update_state(STATES.ATTACK)
 		attack0.disabled = false
-		velocity.x = 0   # freeze movement during attack
-
-
-func _on_attack_timer_timeout() -> void:
-	pass # Replace with function body.
-
-
-func take_damage():
-	print('player took damage')
+		velocity.x = 0 
+		if animated_sprite_2d.flip_h== false:
+			attack0.position =Vector2(42.0,1.75)
+		elif animated_sprite_2d.flip_h == true:
+			attack0.position = Vector2(-41.0,1.75)
 
 
 func _on_health_health_depleted() -> void:
+	hurt_state_lock = false
 	update_state(STATES.DYING)
-
 
 
 func _on_health_changed(difference: int) -> void:
 	if difference < 0 and not hurt_lockout:
 		update_state(STATES.HURT)
 		hurt_lockout = true
-		hurt_timer.start()
-
+		hurt_state_lock = true
+	print(difference)
+	print($Health.health)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -250,10 +231,17 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		else:
 			update_state(STATES.JUMP)
 		allow_state_override_during_attack = false
-
 	elif animated_sprite_2d.animation == "dying":
 		queue_free()
-
+	if current_state == STATES.HURT:
+		hurt_lockout = false
+		hurt_state_lock = false
+		if is_on_floor():
+			update_state(STATES.IDLE)
+		elif velocity.y > 0 and current_state != STATES.WALLSLIDE:
+			update_state(STATES.FALL)
+		else:
+			update_state(STATES.JUMP)
 
 
 func _on_dash_timer_timeout() -> void:

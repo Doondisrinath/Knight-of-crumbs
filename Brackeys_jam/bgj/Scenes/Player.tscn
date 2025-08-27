@@ -422,7 +422,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qidb7")
 }],
-"loop": true,
+"loop": false,
 "name": &"dying",
 "speed": 10.0
 }, {
@@ -453,7 +453,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wpo1r")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 6.0
 }, {
@@ -566,9 +566,8 @@ script = ExtResource("1_rpqav")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_52ee3")
-animation = &"dash"
+animation = &"hurt"
 autoplay = "idle"
-frame_progress = 0.197447
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -582,7 +581,7 @@ script = ExtResource("16_lslt6")
 metadata/_custom_type_script = "uid://dtsaygln43osf"
 
 [node name="attack0" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(41, 1.75)
+position = Vector2(42, 1.75)
 shape = SubResource("RectangleShape2D_lslt6")
 disabled = true
 
@@ -607,11 +606,8 @@ wait_time = 0.2
 
 [node name="dash_again_timer" type="Timer" parent="."]
 
-[node name="hurt_timer" type="Timer" parent="."]
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="health_changed" from="Health" to="." method="_on_health_changed"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
-[connection signal="timeout" from="hurt_timer" to="." method="_on_hurt_timer_timeout"]
