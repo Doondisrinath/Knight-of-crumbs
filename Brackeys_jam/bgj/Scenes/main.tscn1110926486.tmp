@@ -143,5 +143,5 @@ script = ExtResource("3_8gbba")
 metadata/_custom_type_script = "uid://dtsaygln43osf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/HitBox"]
-position = Vector2(197, 360)
+position = Vector2(302, 257)
 shape = SubResource("RectangleShape2D_jjvhh")
