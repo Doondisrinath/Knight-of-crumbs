@@ -113,8 +113,7 @@ size = Vector2(68, 67)
 script = ExtResource("1_jjvhh")
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(460, 230)  
-
+position = Vector2(470, 48)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -200)
@@ -144,5 +143,5 @@ script = ExtResource("3_8gbba")
 metadata/_custom_type_script = "uid://dtsaygln43osf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/HitBox"]
-position = Vector2(307, 252)
+position = Vector2(302, 257)
 shape = SubResource("RectangleShape2D_jjvhh")
