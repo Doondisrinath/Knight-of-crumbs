@@ -5,27 +5,32 @@ signal max_health_changed(difference : int)
 signal health_changed(difference : int)
 signal health_depleted
 
-@export var max_health : int = 3:
-	set(value) :
+@export var max_health : int = 3: set =set_max_health , get = get_max_health
+func set_max_health(value) :
 		var clamped_value =1 if value<=0 else value
 		var difference = clamped_value - max_health
 		max_health = clamped_value
 		max_health_changed.emit(difference)
 		if health>max_health:
 			health = max_health
-	get:
-		return max_health
+
+func get_max_health():
+	return max_health
 
 
 @export var invincible :bool = false:
-	set(value):
-		pass
-	get:
-		return invincible
+	set = set_invincible,
+	get = get_invincible
+
+func set_invincible(value:bool):
+	invincible = value
+func get_invincible():
+	return invincible
 
 
-var health := max_health:
-	set(value):
+
+var health := max_health : set = set_health , get = get_health
+func set_health(value):
 		if value < health and invincible:
 			return
 		var clamped_value = clamp(value,0,max_health)
@@ -36,7 +41,7 @@ var health := max_health:
 		if health == 0:
 			health_depleted.emit()
 		
-	get:
+func get_health():
 		return health
 
 
@@ -48,5 +53,9 @@ func temporary_invincible(time:float):
 		invincible_timer = Timer.new()
 		invincible_timer.one_shot = true
 		add_child(invincible_timer)
-	if invincible_timer.timeout.is_connected(invincible):
-		invincible_timer.timeout.disconnect(invincible.set)
+	if invincible_timer.timeout.is_connected(set_invincible):
+		invincible_timer.timeout.disconnect(set_invincible)
+	invincible_timer.set_wait_time(time)
+	invincible_timer.timeout.connect(set_invincible.bind(false))
+	invincible = true
+	invincible_timer.start()

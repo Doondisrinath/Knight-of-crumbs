@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://c3bomixanq45a"]
+[gd_scene load_steps=88 format=3 uid="uid://c3bomixanq45a"]
 
 [ext_resource type="Script" uid="uid://cj4hpvc674wj7" path="res://Scripts/player.gd" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://4edudj3nx5" path="res://Scripts/health.gd" id="2_1e7my"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://tc207udifm1f" path="res://Assets/Knight_player_1.4/Knight_player/Idle_KG_2.png" id="10_arntx"]
 [ext_resource type="Texture2D" uid="uid://b7y81oftbg1r1" path="res://Assets/Knight_player_1.4/Knight_player/knight_win.png" id="12_lslt6"]
 [ext_resource type="Texture2D" uid="uid://davwid065b7r1" path="res://Assets/Knight_player_1.4/Knight_player/Walking_KG_2.png" id="13_ulo2v"]
+[ext_resource type="Script" uid="uid://dtsaygln43osf" path="res://Scripts/hitbox.gd" id="16_lslt6"]
+[ext_resource type="Script" uid="uid://co0htnqg01bcg" path="res://Scripts/hurtbox.gd" id="17_ulo2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbkls"]
 size = Vector2(37, 26)
@@ -556,13 +558,15 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lslt6"]
+radius = 22.0
+height = 52.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rpqav")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_1e7my")
-max_health = null
-invincible = null
 metadata/_custom_type_script = "uid://4edudj3nx5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -585,6 +589,31 @@ wait_time = 0.2
 [node name="attack timer" type="Timer" parent="."]
 wait_time = 0.102
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("16_lslt6")
+metadata/_custom_type_script = "uid://dtsaygln43osf"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(34, 2)
+shape = SubResource("CapsuleShape2D_lslt6")
+disabled = true
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_ulo2v")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://co0htnqg01bcg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.5, 0)
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_qbkls")
+
+[connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
 [connection signal="timeout" from="attack timer" to="." method="_on_attack_timer_timeout"]

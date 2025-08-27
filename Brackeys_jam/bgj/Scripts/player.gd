@@ -169,3 +169,12 @@ func _on_attack_timer_timeout() -> void:
 
 func take_damage():
 	print('player took damage')
+
+
+func _on_health_health_depleted() -> void:
+	queue_free()
+
+
+
+func _on_health_health_changed(difference: int) -> void:
+	print(difference)
