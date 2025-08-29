@@ -231,8 +231,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		else:
 			update_state(STATES.JUMP)
 		allow_state_override_during_attack = false
-	elif animated_sprite_2d.animation == "dying":
-		queue_free()
+	#elif animated_sprite_2d.animation == "dying":
+		#queue_free()
 	if current_state == STATES.HURT:
 		hurt_lockout = false
 		hurt_state_lock = false

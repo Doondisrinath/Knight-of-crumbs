@@ -585,7 +585,7 @@ position = Vector2(42, 1.75)
 shape = SubResource("RectangleShape2D_lslt6")
 disabled = true
 
-[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health") groups=["Player"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("17_ulo2v")

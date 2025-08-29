@@ -28,6 +28,10 @@ project/assembly_name="BGJ"
 
 enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [input]
 
 up={
