@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c47cpy2lvfdng"
+path="res://.godot/imported/Pixel 7.mp3-118399d470fe06b2a1f1bcc5cbba51c8.mp3str"
+
+[deps]
+
+source_file="res://Assets/oak_woods_v1.0/Pixel 7.mp3"
+dest_files=["res://.godot/imported/Pixel 7.mp3-118399d470fe06b2a1f1bcc5cbba51c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

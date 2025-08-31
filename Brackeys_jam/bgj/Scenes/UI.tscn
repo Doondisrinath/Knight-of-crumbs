@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3t4rohac6vqy"]
+
+[ext_resource type="FontFile" uid="uid://ddynjcn4mqnfv" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_w371h"]
+[ext_resource type="Script" uid="uid://bhi6e547t20qm" path="res://Scripts/credits.gd" id="1_xjg7p"]
+[ext_resource type="Texture2D" uid="uid://d07su1p5dxukx" path="res://Assets/For UI/background_0.png" id="2_hfhsn"]
+[ext_resource type="Texture2D" uid="uid://cg8eggr226jm2" path="res://Assets/For UI/background_2.png" id="2_nxvpl"]
+[ext_resource type="Script" uid="uid://b5mbuc1fql24h" path="res://Scripts/parallax_background.gd" id="2_qwshj"]
+[ext_resource type="Texture2D" uid="uid://cis3y01tqb8dx" path="res://Assets/For UI/background_1.png" id="3_dewlx"]
+[ext_resource type="AudioStream" uid="uid://c47cpy2lvfdng" path="res://Assets/oak_woods_v1.0/Pixel 7.mp3" id="6_48q88"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xjg7p")
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 281.0
+offset_right = 603.0
+offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("1_w371h")
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 334.0
+offset_right = 579.0
+offset_bottom = 365.0
+theme_override_fonts/font = ExtResource("1_w371h")
+text = "QUIT
+"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 230.0
+offset_right = 581.0
+offset_bottom = 261.0
+theme_override_fonts/font = ExtResource("1_w371h")
+text = "PLAY"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_qwshj")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("2_hfhsn")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("3_dewlx")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("2_nxvpl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_48q88")
+autoplay = true

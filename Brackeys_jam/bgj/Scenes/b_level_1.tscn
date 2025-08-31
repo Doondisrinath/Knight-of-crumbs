@@ -1195,6 +1195,436 @@ z_index = -6
 position = Vector2(5699, 215)
 texture = ExtResource("15_in334")
 
+[node name="Grass62" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6393, 263)
+texture = ExtResource("15_in334")
+
+[node name="Grass63" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6399, 262)
+texture = ExtResource("15_in334")
+
+[node name="Grass64" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6424, 263)
+texture = ExtResource("15_in334")
+
+[node name="Grass65" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6472, 262)
+texture = ExtResource("15_in334")
+
+[node name="Grass66" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6640, 216)
+texture = ExtResource("15_in334")
+
+[node name="Grass67" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6664, 214)
+texture = ExtResource("15_in334")
+
+[node name="Grass68" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6679, 216)
+texture = ExtResource("15_in334")
+
+[node name="Grass69" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6732, 214)
+texture = ExtResource("15_in334")
+
+[node name="Grass70" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6752, 215)
+texture = ExtResource("15_in334")
+
+[node name="Grass71" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6761, 215)
+texture = ExtResource("15_in334")
+
+[node name="Grass72" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6786, 215)
+texture = ExtResource("15_in334")
+
+[node name="Grass73" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6810, 215)
+texture = ExtResource("15_in334")
+
+[node name="Grass74" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6834, 215)
+texture = ExtResource("15_in334")
+
+[node name="Grass75" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6858, 214)
+texture = ExtResource("15_in334")
+
+[node name="Grass76" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6882, 214)
+texture = ExtResource("15_in334")
+
+[node name="Grass77" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(6930, 214)
+texture = ExtResource("15_in334")
+
+[node name="Grass78" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7295, 455)
+texture = ExtResource("15_in334")
+
+[node name="Grass79" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7354, 430)
+texture = ExtResource("15_in334")
+
+[node name="Grass80" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7363, 431)
+texture = ExtResource("15_in334")
+
+[node name="Grass81" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7428, 431)
+texture = ExtResource("15_in334")
+
+[node name="Grass82" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7480, 432)
+texture = ExtResource("15_in334")
+
+[node name="Grass83" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7548, 526)
+texture = ExtResource("15_in334")
+
+[node name="Grass84" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7556, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass85" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7594, 528)
+texture = ExtResource("15_in334")
+
+[node name="Grass86" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7618, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass87" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7822, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass88" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7883, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass89" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7888, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass90" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7955, 528)
+texture = ExtResource("15_in334")
+
+[node name="Grass91" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7965, 526)
+texture = ExtResource("15_in334")
+
+[node name="Grass92" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(7986, 528)
+texture = ExtResource("15_in334")
+
+[node name="Grass93" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8038, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass94" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8047, 528)
+texture = ExtResource("15_in334")
+
+[node name="Grass95" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8083, 526)
+texture = ExtResource("15_in334")
+
+[node name="Grass96" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8158, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass97" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8183, 526)
+texture = ExtResource("15_in334")
+
+[node name="Grass98" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8188, 526)
+texture = ExtResource("15_in334")
+
+[node name="Grass99" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8222, 528)
+texture = ExtResource("15_in334")
+
+[node name="Grass100" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8244, 527)
+texture = ExtResource("15_in334")
+
+[node name="Grass101" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8417, 550)
+texture = ExtResource("15_in334")
+
+[node name="Grass102" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8503, 574)
+texture = ExtResource("15_in334")
+
+[node name="Grass103" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8508, 574)
+texture = ExtResource("15_in334")
+
+[node name="Grass104" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8544, 574)
+texture = ExtResource("15_in334")
+
+[node name="Grass105" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8553, 575)
+texture = ExtResource("15_in334")
+
+[node name="Grass106" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8694, 551)
+texture = ExtResource("15_in334")
+
+[node name="Grass107" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8712, 551)
+texture = ExtResource("15_in334")
+
+[node name="Grass108" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8718, 551)
+texture = ExtResource("15_in334")
+
+[node name="Grass109" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8872, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass110" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8877, 481)
+texture = ExtResource("15_in334")
+
+[node name="Grass111" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8982, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass112" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8991, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass113" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9025, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass114" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9051, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass115" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9057, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass116" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9162, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass117" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9388, 478)
+texture = ExtResource("15_in334")
+
+[node name="Grass118" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9395, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass119" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9437, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass120" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9451, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass121" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9584, 478)
+texture = ExtResource("15_in334")
+
+[node name="Grass122" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9590, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass123" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9675, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass124" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9685, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass125" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9664, 481)
+texture = ExtResource("15_in334")
+
+[node name="Grass126" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9792, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass127" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9800, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass128" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9808, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass129" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9840, 480)
+texture = ExtResource("15_in334")
+
+[node name="Grass130" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9849, 479)
+texture = ExtResource("15_in334")
+
+[node name="Grass131" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(10004, 478)
+texture = ExtResource("15_in334")
+
+[node name="Grass132" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9998, 478)
+texture = ExtResource("15_in334")
+
+[node name="Grass133" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9308, 286)
+texture = ExtResource("15_in334")
+
+[node name="Grass134" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9299, 286)
+texture = ExtResource("15_in334")
+
+[node name="Grass135" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9248, 286)
+texture = ExtResource("15_in334")
+
+[node name="Grass136" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9209, 287)
+texture = ExtResource("15_in334")
+
+[node name="Grass137" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9171, 286)
+texture = ExtResource("15_in334")
+
+[node name="Grass138" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9161, 287)
+texture = ExtResource("15_in334")
+
+[node name="Grass139" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(9128, 288)
+texture = ExtResource("15_in334")
+
+[node name="Grass140" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8634, 311)
+texture = ExtResource("15_in334")
+
+[node name="Grass141" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8624, 312)
+texture = ExtResource("15_in334")
+
+[node name="Grass142" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8603, 312)
+texture = ExtResource("15_in334")
+
+[node name="Grass143" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8536, 312)
+texture = ExtResource("15_in334")
+
+[node name="Grass144" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8525, 311)
+texture = ExtResource("15_in334")
+
+[node name="Grass145" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8508, 312)
+texture = ExtResource("15_in334")
+
+[node name="Grass146" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8476, 313)
+texture = ExtResource("15_in334")
+
+[node name="Grass147" type="Sprite2D" parent="Background elements/Grass"]
+z_index = -6
+position = Vector2(8454, 311)
+texture = ExtResource("15_in334")
+
 [node name="Rock16" type="Sprite2D" parent="Background elements/Grass"]
 z_index = -6
 position = Vector2(5940, 139)
@@ -1301,13 +1731,7 @@ texture = ExtResource("20_mrfvx")
 
 [node name="Lamp16" type="Sprite2D" parent="Background elements/Lamps"]
 z_index = -6
-position = Vector2(7273, 404)
-scale = Vector2(1.94298, 1.94298)
-texture = ExtResource("20_mrfvx")
-
-[node name="Lamp17" type="Sprite2D" parent="Background elements/Lamps"]
-z_index = -6
-position = Vector2(7375, 378)
+position = Vector2(7047, 429)
 scale = Vector2(1.94298, 1.94298)
 texture = ExtResource("20_mrfvx")
 
