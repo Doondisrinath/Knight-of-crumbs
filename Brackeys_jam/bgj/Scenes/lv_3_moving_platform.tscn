@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://buomel4hno6ae"]
+
+[ext_resource type="Texture2D" uid="uid://dbjv3s1sg2irs" path="res://Assets/Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="1_g2eal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4y1t"]
+size = Vector2(376, 33)
+
+[node name="lv3 moving platform" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(-4, -2)
+scale = Vector2(5, 3)
+texture = ExtResource("1_g2eal")
+region_enabled = true
+region_rect = Rect2(80.2222, 159.309, 79.787, 14.4795)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-8, -6.5)
+shape = SubResource("RectangleShape2D_s4y1t")
+one_way_collision = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cubtkoda6m3kf"
+path="res://.godot/imported/Pixel 5.mp3-112b5e0d62210825258b6a32ea8e7b32.mp3str"
+
+[deps]
+
+source_file="res://Assets/mp3/Pixel 5.mp3"
+dest_files=["res://.godot/imported/Pixel 5.mp3-112b5e0d62210825258b6a32ea8e7b32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
