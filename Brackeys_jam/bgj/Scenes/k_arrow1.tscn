@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd274kbkpspge"]
+
+[ext_resource type="Texture2D" uid="uid://cxbdv8xu0bk56" path="res://Assets/k_tiles/Caves D&G.png" id="1_g1qy8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq5ur"]
+size = Vector2(45, 23)
+
+[node name="arrow1" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(14, 7.25)
+scale = Vector2(3, 3.07143)
+texture = ExtResource("1_g1qy8")
+region_enabled = true
+region_rect = Rect2(256.41, 132.755, 14.6882, 7.81688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 7)
+shape = SubResource("RectangleShape2D_pq5ur")
