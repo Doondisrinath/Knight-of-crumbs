@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var player: CharacterBody2D = $"../../Player"
 
 var checkpoint_manager
 # Called when the node enters the scene tree for the first time.
@@ -14,5 +15,5 @@ func _process(delta: float) -> void:
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body == player:
 		checkpoint_manager.last_location = $RespawnPoint.global_position

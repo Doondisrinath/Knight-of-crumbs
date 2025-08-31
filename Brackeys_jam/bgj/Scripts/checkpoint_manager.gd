@@ -1,6 +1,6 @@
 extends Node
 
-var last_location
+var last_location : Vector2
 var player
 
 func _ready() -> void:

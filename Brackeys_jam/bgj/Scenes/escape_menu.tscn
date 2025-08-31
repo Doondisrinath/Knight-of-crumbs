@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctlanj7or5ls"]
+
+[ext_resource type="FontFile" uid="uid://m48edjcwpkoi" path="res://Assets/fonts/PixelOperator8.ttf" id="1_iqg4d"]
+[ext_resource type="Script" uid="uid://b3xxots3ixpv" path="res://Scripts/quit_to_menu.gd" id="2_ncv07"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.501961)
+z_index = -1
+offset_right = 1150.0
+offset_bottom = 666.0
+color = Color(0, 0, 0, 1)
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 519.0
+offset_top = 279.0
+offset_right = 625.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("1_iqg4d")
+text = "RESTART
+"
+
+[node name="Quit to menu" type="Button" parent="."]
+offset_left = 495.0
+offset_top = 324.0
+offset_right = 659.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("1_iqg4d")
+text = "QUIT TO MENU"
+script = ExtResource("2_ncv07")
+
+[connection signal="pressed" from="Quit to menu" to="Quit to menu" method="_on_pressed"]

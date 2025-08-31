@@ -231,8 +231,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		else:
 			update_state(STATES.JUMP)
 		allow_state_override_during_attack = false
-	#elif animated_sprite_2d.animation == "dying":
-		#queue_free()
+	elif animated_sprite_2d.animation == "dying":
+		get_tree().reload_current_scene()
 	if current_state == STATES.HURT:
 		hurt_lockout = false
 		hurt_state_lock = false
@@ -256,3 +256,9 @@ func _on_dash_timer_timeout() -> void:
 			update_state(STATES.FALL)
 		elif current_state !=STATES.WALLSLIDE :
 			update_state(STATES.JUMP)
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("esc"):
+		get_tree().change_scene_to_file("res://Scenes/UI.tscn")
+		

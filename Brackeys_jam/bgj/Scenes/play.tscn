@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://prf3dr8bx73v"]
+
+[ext_resource type="FontFile" uid="uid://ddynjcn4mqnfv" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_7kc6r"]
+[ext_resource type="Script" uid="uid://cr07aoyfnb8qy" path="res://Scripts/play.gd" id="1_dm5w0"]
+
+[node name="Play" type="Node2D"]
+script = ExtResource("1_dm5w0")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 509.0
+offset_top = 402.0
+offset_right = 581.0
+offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("1_7kc6r")
+text = "PLAY"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

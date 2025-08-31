@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3t4rohac6vqy"]
+[gd_scene load_steps=22 format=3 uid="uid://c3t4rohac6vqy"]
 
 [ext_resource type="FontFile" uid="uid://ddynjcn4mqnfv" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_w371h"]
 [ext_resource type="Script" uid="uid://bhi6e547t20qm" path="res://Scripts/credits.gd" id="1_xjg7p"]
@@ -6,44 +6,111 @@
 [ext_resource type="Texture2D" uid="uid://cg8eggr226jm2" path="res://Assets/For UI/background_2.png" id="2_nxvpl"]
 [ext_resource type="Script" uid="uid://b5mbuc1fql24h" path="res://Scripts/parallax_background.gd" id="2_qwshj"]
 [ext_resource type="Texture2D" uid="uid://cis3y01tqb8dx" path="res://Assets/For UI/background_1.png" id="3_dewlx"]
+[ext_resource type="Script" uid="uid://cr07aoyfnb8qy" path="res://Scripts/play.gd" id="3_mg6lk"]
+[ext_resource type="Script" uid="uid://c51338ck5nl2p" path="res://Scripts/quit.gd" id="4_wunin"]
 [ext_resource type="AudioStream" uid="uid://c47cpy2lvfdng" path="res://Assets/oak_woods_v1.0/Pixel 7.mp3" id="6_48q88"]
+[ext_resource type="FontFile" uid="uid://m48edjcwpkoi" path="res://Assets/fonts/PixelOperator8.ttf" id="10_j04uc"]
+[ext_resource type="Texture2D" uid="uid://i2kcay5lxk7m" path="res://Assets/Knight_player_1.4/Knight_player/Walking_KG_1.png" id="11_vqx31"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_xjg7p")
+[sub_resource type="LabelSettings" id="LabelSettings_vqx31"]
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.752941, 0.752941, 0.752941, 1)
 
-[node name="Credits" type="Button" parent="."]
-layout_mode = 0
-offset_left = 487.0
-offset_top = 281.0
-offset_right = 603.0
-offset_bottom = 312.0
-theme_override_fonts/font = ExtResource("1_w371h")
-text = "CREDITS"
+[sub_resource type="LabelSettings" id="LabelSettings_b1goy"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 9
+shadow_color = Color(0, 0, 0, 0.666667)
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 511.0
-offset_top = 334.0
-offset_right = 579.0
-offset_bottom = 365.0
-theme_override_fonts/font = ExtResource("1_w371h")
-text = "QUIT
-"
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1goy"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(0, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n04ve"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(100, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi7yl"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(200, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q4fb"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(300, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqm5i"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(400, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnovg"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(500, 0, 100, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13dyv"]
+atlas = ExtResource("11_vqx31")
+region = Rect2(600, 0, 100, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r71lk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1goy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n04ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi7yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q4fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqm5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnovg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13dyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="UI" type="Node2D"]
 
 [node name="Play" type="Button" parent="."]
-layout_mode = 0
 offset_left = 509.0
-offset_top = 230.0
+offset_top = 402.0
 offset_right = 581.0
-offset_bottom = 261.0
+offset_bottom = 433.0
 theme_override_fonts/font = ExtResource("1_w371h")
 text = "PLAY"
+script = ExtResource("3_mg6lk")
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 489.0
+offset_top = 444.0
+offset_right = 605.0
+offset_bottom = 475.0
+theme_override_fonts/font = ExtResource("1_w371h")
+text = "CREDITS
+"
+script = ExtResource("1_xjg7p")
+
+[node name="qUIT" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 488.0
+offset_right = 580.0
+offset_bottom = 519.0
+theme_override_fonts/font = ExtResource("1_w371h")
+text = "QUIT"
+script = ExtResource("4_wunin")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("2_qwshj")
@@ -75,3 +142,36 @@ texture = ExtResource("2_nxvpl")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_48q88")
 autoplay = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 309.0
+offset_top = 275.0
+offset_right = 777.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("1_w371h")
+theme_override_font_sizes/font_size = 32
+text = "Knight of Crumbs"
+label_settings = SubResource("LabelSettings_vqx31")
+
+[node name="8" type="Label" parent="."]
+visible = false
+offset_left = 443.0
+offset_top = 307.0
+offset_right = 651.0
+offset_bottom = 329.0
+theme_override_fonts/font = ExtResource("10_j04uc")
+theme_override_font_sizes/font_size = 9
+text = "Knight of Crumbs"
+label_settings = SubResource("LabelSettings_b1goy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(199, 604)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_r71lk")
+autoplay = "default"
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
+[connection signal="pressed" from="qUIT" to="qUIT" method="_on_pressed"]

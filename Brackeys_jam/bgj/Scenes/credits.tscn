@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://w1scas2a5qda"]
+
+[ext_resource type="FontFile" uid="uid://m48edjcwpkoi" path="res://Assets/fonts/PixelOperator8.ttf" id="1_r18jl"]
+[ext_resource type="FontFile" uid="uid://ddynjcn4mqnfv" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_uah1q"]
+[ext_resource type="Script" uid="uid://b5mbuc1fql24h" path="res://Scripts/parallax_background.gd" id="2_xelri"]
+[ext_resource type="Texture2D" uid="uid://d07su1p5dxukx" path="res://Assets/For UI/background_0.png" id="3_uah1q"]
+[ext_resource type="Texture2D" uid="uid://cis3y01tqb8dx" path="res://Assets/For UI/background_1.png" id="4_7emq5"]
+[ext_resource type="Texture2D" uid="uid://cg8eggr226jm2" path="res://Assets/For UI/background_2.png" id="5_803yc"]
+[ext_resource type="Script" uid="uid://cdcvtm3dncylg" path="res://Scripts/back_navigation.gd" id="7_7emq5"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="1" type="Label" parent="Node"]
+offset_left = 339.0
+offset_top = 198.0
+offset_right = 695.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+text = "Stringstar Fields - by Trixie"
+
+[node name="7" type="Label" parent="Node"]
+offset_left = 391.0
+offset_top = 101.0
+offset_right = 747.0
+offset_bottom = 149.0
+theme_override_fonts/font = ExtResource("2_uah1q")
+theme_override_font_sizes/font_size = 48
+text = "ASSETS"
+
+[node name="2" type="Label" parent="Node"]
+offset_left = 339.0
+offset_top = 233.0
+offset_right = 745.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+text = "Pixel Adventure 2 - by Pixel Frog"
+
+[node name="3" type="Label" parent="Node"]
+offset_left = 339.0
+offset_top = 266.0
+offset_right = 617.0
+offset_bottom = 289.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+text = "Oak woods - 	by brullov"
+
+[node name="4" type="Label" parent="Node"]
+offset_left = 339.0
+offset_top = 299.0
+offset_right = 713.0
+offset_bottom = 322.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+text = "Dungeons Tilesets - by David G"
+
+[node name="5" type="Label" parent="Node"]
+offset_left = 339.0
+offset_top = 332.0
+offset_right = 845.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+text = "Brackey's Platformer Pack - by Brackeys"
+
+[node name="6" type="Label" parent="Node"]
+offset_left = 339.0
+offset_top = 363.0
+offset_right = 845.0
+offset_bottom = 386.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+text = "Knight Player - by jump_button"
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+script = ExtResource("2_xelri")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("3_uah1q")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("4_7emq5")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("5_803yc")
+
+[node name="Credits2" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 144.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("2_uah1q")
+text = "<"
+script = ExtResource("7_7emq5")
+
+[connection signal="pressed" from="Credits2" to="Credits2" method="_on_pressed"]
