@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dugbscymgg4t6"]
+
+[ext_resource type="Script" uid="uid://dtsaygln43osf" path="res://Scripts/hitbox.gd" id="1_vpby7"]
+[ext_resource type="Texture2D" uid="uid://cxbdv8xu0bk56" path="res://Assets/k_tiles/Caves D&G.png" id="2_ac52q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpby7"]
+size = Vector2(123, 10)
+
+[node name="HitBox" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_vpby7")
+metadata/_custom_type_script = "uid://dtsaygln43osf"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32.5, 2.75)
+scale = Vector2(2.08333, 1.5)
+texture = ExtResource("2_ac52q")
+region_enabled = true
+region_rect = Rect2(178, 105, 60, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33.5, 2)
+shape = SubResource("RectangleShape2D_vpby7")

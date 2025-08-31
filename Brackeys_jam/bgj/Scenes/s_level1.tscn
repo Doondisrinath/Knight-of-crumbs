@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxvgxbhnayli7"]
+[gd_scene load_steps=14 format=3 uid="uid://bxvgxbhnayli7"]
 
 [ext_resource type="PackedScene" uid="uid://c3bomixanq45a" path="res://Scenes/Player.tscn" id="1_o4xly"]
 [ext_resource type="Texture2D" uid="uid://csxb41pbuk377" path="res://Assets/stringstar fields/tileset.png" id="2_d22dx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdf48giwdr6eg" path="res://Assets/stringstar fields/background_1.png" id="4_baeuw"]
 [ext_resource type="Texture2D" uid="uid://d2rlsktsa7byo" path="res://Assets/stringstar fields/background_2.png" id="5_gfwga"]
 [ext_resource type="FontFile" uid="uid://m48edjcwpkoi" path="res://Assets/fonts/PixelOperator8.ttf" id="6_gfwga"]
+[ext_resource type="AudioStream" uid="uid://j5yyk8p4doke" path="res://Assets/Music/Pixel 2.mp3" id="7_0j2ut"]
 [ext_resource type="Script" uid="uid://bmllr7fik0h1k" path="res://Scripts/scene_change_trigger_level_1.gd" id="7_t05bm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b80r7"]
@@ -413,6 +414,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0j2ut")
 autoplay = true
 
 [node name="Scene change trigger" type="Area2D" parent="."]

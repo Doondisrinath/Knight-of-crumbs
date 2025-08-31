@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://civwkys4hvy5v"]
+[gd_scene load_steps=51 format=3 uid="uid://civwkys4hvy5v"]
 
 [ext_resource type="Texture2D" uid="uid://q4girh8fbejo" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_mtkki"]
 [ext_resource type="Texture2D" uid="uid://bmq04ca4wfp6" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/background/bg.png" id="2_flund"]
@@ -22,8 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://bx2flk0foyo86" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/decorations/grass_3.png" id="16_b8o5v"]
 [ext_resource type="Texture2D" uid="uid://c81jcjjoak4rw" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/decorations/lamp.png" id="20_mrfvx"]
 [ext_resource type="Texture2D" uid="uid://bsurr31gqq5fe" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/decorations/rock_3.png" id="21_7xrch"]
-[ext_resource type="Script" uid="uid://bmllr7fik0h1k" path="res://Scripts/scene_change_trigger_level_1.gd" id="22_jy4mi"]
 [ext_resource type="Texture2D" uid="uid://ctj8cbm7ccw1l" path="res://Assets/For UI/Dimensional_Portal.png" id="23_coigf"]
+[ext_resource type="Script" uid="uid://bu1ilji4q1ta8" path="res://Scripts/scene_change_lvl2.gd" id="23_sxply"]
+[ext_resource type="AudioStream" uid="uid://cw652ipjcu4ap" path="res://Assets/Music/Pixel 11.mp3" id="25_g77lr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8egr3"]
 texture = ExtResource("1_mtkki")
@@ -2268,7 +2269,7 @@ scale = Vector2(1.59677, 1.59677)
 texture = ExtResource("10_7xrch")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("22_jy4mi")
+script = ExtResource("23_sxply")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 position = Vector2(9942, 445)
@@ -2279,6 +2280,10 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9944, 447)
 shape = SubResource("CapsuleShape2D_sxply")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_g77lr")
+autoplay = true
 
 [connection signal="body_entered" from="Water Killzone" to="Water Killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="Water Killzone2" to="Water Killzone2" method="_on_body_entered"]

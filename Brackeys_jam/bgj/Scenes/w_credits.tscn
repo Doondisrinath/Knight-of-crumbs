@@ -1,0 +1,166 @@
+[gd_scene load_steps=9 format=3 uid="uid://7cfvob4h2hfk"]
+
+[ext_resource type="FontFile" uid="uid://m48edjcwpkoi" path="res://Assets/fonts/PixelOperator8.ttf" id="1_0vdhd"]
+[ext_resource type="FontFile" uid="uid://ddynjcn4mqnfv" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_lpwgl"]
+[ext_resource type="Script" uid="uid://b5mbuc1fql24h" path="res://Scripts/parallax_background.gd" id="3_ndblf"]
+[ext_resource type="Texture2D" uid="uid://d07su1p5dxukx" path="res://Assets/For UI/background_0.png" id="4_1s0qc"]
+[ext_resource type="Texture2D" uid="uid://cis3y01tqb8dx" path="res://Assets/For UI/background_1.png" id="5_w8y8b"]
+[ext_resource type="Texture2D" uid="uid://cg8eggr226jm2" path="res://Assets/For UI/background_2.png" id="6_r8upq"]
+[ext_resource type="Script" uid="uid://cdcvtm3dncylg" path="res://Scripts/back_navigation.gd" id="7_0leow"]
+[ext_resource type="AudioStream" uid="uid://cte37rt4wiggv" path="res://Assets/Music/Pixel 12.mp3" id="8_lpwgl"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="1" type="Label" parent="Node"]
+offset_left = 38.0
+offset_top = 348.0
+offset_right = 394.0
+offset_bottom = 371.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "Stringstar Fields - by Trixie"
+metadata/_edit_use_anchors_ = true
+
+[node name="7" type="Label" parent="Node"]
+anchors_preset = -1
+anchor_right = -0.142361
+anchor_bottom = -0.0246914
+offset_left = 109.0
+offset_top = 291.0
+offset_right = 465.0
+offset_bottom = 339.0
+theme_override_fonts/font = ExtResource("2_lpwgl")
+theme_override_font_sizes/font_size = 32
+text = "ASSETS"
+metadata/_edit_use_anchors_ = true
+
+[node name="8" type="Label" parent="Node"]
+anchors_preset = -1
+anchor_left = -0.142361
+anchor_top = -0.0246914
+anchor_right = -0.3125
+anchor_bottom = -0.0493827
+offset_left = 979.0
+offset_top = 298.0
+offset_right = 1335.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("2_lpwgl")
+theme_override_font_sizes/font_size = 32
+text = "MUSIC"
+metadata/_edit_use_anchors_ = true
+
+[node name="9" type="Label" parent="Node"]
+anchors_preset = -1
+anchor_left = -0.3125
+anchor_top = -0.0493827
+anchor_right = -0.3125
+anchor_bottom = -0.0493827
+offset_left = 597.0
+offset_top = 170.0
+offset_right = 1285.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_lpwgl")
+theme_override_font_sizes/font_size = 32
+text = "YOU COMPLETED THE GAME!"
+metadata/_edit_use_anchors_ = true
+
+[node name="2" type="Label" parent="Node"]
+offset_left = 38.0
+offset_top = 383.0
+offset_right = 444.0
+offset_bottom = 406.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "Pixel Adventure 2 - by Pixel Frog"
+metadata/_edit_use_anchors_ = true
+
+[node name="10" type="Label" parent="Node"]
+anchors_preset = -1
+anchor_right = -0.223958
+anchor_bottom = -0.0108025
+offset_left = 819.0
+offset_top = 361.0
+offset_right = 1225.0
+offset_bottom = 384.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "By ALKAKRAB"
+metadata/_edit_use_anchors_ = true
+
+[node name="3" type="Label" parent="Node"]
+offset_left = 38.0
+offset_top = 416.0
+offset_right = 316.0
+offset_bottom = 439.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "Oak woods - 	by brullov"
+metadata/_edit_use_anchors_ = true
+
+[node name="4" type="Label" parent="Node"]
+offset_left = 38.0
+offset_top = 449.0
+offset_right = 412.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "Dungeons Tilesets - by David G"
+metadata/_edit_use_anchors_ = true
+
+[node name="5" type="Label" parent="Node"]
+offset_left = 38.0
+offset_top = 482.0
+offset_right = 544.0
+offset_bottom = 505.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "Brackey's Platformer Pack - by Brackeys"
+metadata/_edit_use_anchors_ = true
+
+[node name="6" type="Label" parent="Node"]
+offset_left = 38.0
+offset_top = 513.0
+offset_right = 544.0
+offset_bottom = 536.0
+theme_override_fonts/font = ExtResource("1_0vdhd")
+text = "Knight Player - by jump_button"
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+script = ExtResource("3_ndblf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("4_1s0qc")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("5_w8y8b")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(1008, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+position = Vector2(577.5, 315.563)
+scale = Vector2(4.01736, 4.01736)
+texture = ExtResource("6_r8upq")
+
+[node name="Credits2" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 144.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("2_lpwgl")
+text = "<"
+script = ExtResource("7_0leow")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lpwgl")
+autoplay = true
+
+[connection signal="pressed" from="Credits2" to="Credits2" method="_on_pressed"]

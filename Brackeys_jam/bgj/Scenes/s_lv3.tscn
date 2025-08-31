@@ -1,12 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://bgxu347i47yvy"]
+[gd_scene load_steps=31 format=3 uid="uid://bgxu347i47yvy"]
 
 [ext_resource type="PackedScene" uid="uid://c3bomixanq45a" path="res://Scenes/Player.tscn" id="1_0158y"]
 [ext_resource type="Texture2D" uid="uid://dbjv3s1sg2irs" path="res://Assets/Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="2_g12g6"]
 [ext_resource type="PackedScene" uid="uid://buomel4hno6ae" path="res://Scenes/lv_3_moving_platform.tscn" id="3_st6h2"]
 [ext_resource type="Texture2D" uid="uid://2atdkn85cx1q" path="res://Assets/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="5_owcju"]
 [ext_resource type="Texture2D" uid="uid://dudfm7ebv8lp4" path="res://Assets/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="6_vbtyo"]
+[ext_resource type="AudioStream" uid="uid://5avpx47r0rda" path="res://Assets/Music/Pixel 6.mp3" id="7_acrlf"]
 [ext_resource type="Texture2D" uid="uid://0ky4gi7aebbk" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="7_k1t0h"]
-[ext_resource type="Script" uid="uid://bmllr7fik0h1k" path="res://Scripts/scene_change_trigger_level_1.gd" id="8_k1t0h"]
+[ext_resource type="Script" uid="uid://4skw6psgta64" path="res://Scenes/scene_change_lvl3.gd" id="8_k1t0h"]
 [ext_resource type="Script" uid="uid://dtsaygln43osf" path="res://Scripts/hitbox.gd" id="8_vbtyo"]
 [ext_resource type="Texture2D" uid="uid://ctj8cbm7ccw1l" path="res://Assets/For UI/Dimensional_Portal.png" id="9_acrlf"]
 
@@ -763,6 +764,7 @@ scale = Vector2(1.11842, 1.82921)
 texture = ExtResource("7_k1t0h")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_acrlf")
 autoplay = true
 
 [node name="HitBox" type="Area2D" parent="."]
